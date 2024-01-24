@@ -12,7 +12,7 @@ class EdgeBrowser:
         self.url = url
         self.wait_time = wait_time
 
-    def get_html_page(self):
+    def get_html_page(self) -> str:
 
         options = webdriver.EdgeOptions()
         options.add_argument("--headless")

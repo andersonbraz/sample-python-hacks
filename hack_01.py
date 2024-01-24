@@ -1,9 +1,16 @@
-from lxml import html
-import requests
+from selenium import webdriver
+from selenium.webdriver.edge.service import Service as EdgeService
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver.common.by import By
+import time
 
-search_url = "https://www.ibge.gov.br/estatisticas/downloads-estatisticas.html"
-search_page = requests.get(search_url)
-search_html = html.fromstring(search_page.text)
-firstEntry_link = search_html.xpath('//*[@id="Industria_da_Construcao_anchor"]/')
+driver = webdriver.Edge(service=EdgeService(EdgeChromiumDriverManager().install()))
+driver.get('https://www.ibge.gov.br/estatisticas/downloads-estatisticas.html')
 
-print(search_html)
+myLink = driver.find_element(By.ID, 'cookie-btn')
+time.sleep(2)
+myLink.click()
+
+time.sleep(30)
+driver.quit()
+
