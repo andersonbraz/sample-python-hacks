@@ -7,8 +7,8 @@ def is_valid_email(email):
 
 
 email = "contato@andersonbraz.com"
-check = is_valid_email(email)
-if check:
+check_email = is_valid_email(email)
+if check_email:
     print("email ok")
 else:
     print("email fail")
